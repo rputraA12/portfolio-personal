@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/23256835fc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- HOME -->
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="img/logopolos.png" class="logo">
+                <ul id="menu">
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                    <li><a href="#header">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="headertext">
+                <p>WEB DEVELOPER</p>
+                <h1>Hi`im <span>Ringga</span> <br>Putra Arimba </h1>
+            </div>
+            <img src="img/people_and_animal____️___-removebg-preview.png" class="picture">
+        </div>
+    </div>
+    <!-- ABOUT -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about1">
+                    <img src="img/saya.png" alt="">
+                </div>
+                <div class="about2">
+                    <h1 class="subtit">About Me:)</h1>
+                    <p class="t">Saya adalah seorang programmer pemula. Saya lahir pada tanggal 23 July 2008 di bogor, saat ini saya adalah seorang pelajar SMAN 1 TAMANSARI kelas 10. Saya berdomisilikan di bogor yang di sebut juga kota hujan. saya memiliki Hobi Bermain Game Free Fire. Dalam Game free fire skill saya di atas rata-rata player epep, bukan hanya di mode battle royal tetapi juga di mode clash squad.</p>
+                    <div class="tabtit">
+                        <p class="tablink aktiflink" onclick="opentab('skills')">Skills</p>
+                        <p class="tablink" onclick="opentab('educations')">Educations</p>
+                    </div>
+                    <div class="tabcontents aktiftab" id="skills">
+                    <ul>
+                        <li><span>HTML</span><br>Saya dapat mengoprasikan bahasa pemrograman HTML</li>
+                        <li><span>CSS</span><br>Saya dapat mengoprasikan bahasa pemrograman CSS</li>
+                        <li><span>PRO PLAYER</span><br>Saya dapat menguasai role rusher dalam game free fire</li>
+                    </ul>
+                    </div>
+                    <div class="tabcontents" id="educations">
+                    <ul>
+                        <li><span>SD</span><br>Sekolah Islam Terpadu Ibnu Abbas</li>
+                        <li><span>SMP</span><br>Madrasah Tsanawiyah Al-Inayah</li>
+                        <li><span>SMA</span><br>Sekolah Menengah Atas Negeri 1 Tamansari</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CONTACT -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                    <div class="kontakkiri">
+                        <h1 class="subtit">Contact Me</h1>
+                        <p><i class="fa-solid fa-paper-plane"></i>contact@example.com</p>
+                        <p><i class="fa-solid fa-phone-volume"></i>0997625354</p>
+                        <div class="socialmedia">
+                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                        <a href="img/Putih Abu Abu Modern CV Resume Riwayat Hidup_20241214_214514_0000.pdf" download class="button" >Download CV</a>
+                    </div>
+                    <div class="kontakkanan">
+                            <form name="submit-to-google-sheet">
+                                <input type="text" name="Name" placeholder="nama anda" required>
+                                <input type="email" name="Email" placeholder="email anda" required>
+                                <textarea name="Message" rows="6" placeholder="Pesan Anda" required></textarea>
+                                <button type="submit" class="button bute">Send Message</button>
+                            </form>
+                            <span id="done"></span>
+                    </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>copyright <i class="fa-regular fa-copyright"></i> Imba wakanda <br>21-12-2024 </p>
+        </div>
+    </div>
+
+
+    <!-- KLIK ABOUT -->
+<script>
+    var tablink = document.getElementsByClassName("tablink")
+    var tabcontents = document.getElementsByClassName("tabcontents")
+
+    function opentab(tabNama){
+        for(tablinks of tablink){
+            tablinks.classList.remove("aktiflink")
+        }
+        for(tabcontent of tabcontents) {
+            tabcontent.classList.remove("aktiftab")
+        }
+        event.currentTarget.classList.add("aktiflink")
+        document.getElementById(tabNama).classList.add("aktiftab")
+    }
+</script>
+
+<script>
+    var bukaMenu = document.getElementById("menu")
+    
+    function openmenu(){
+        menu.style.right = "0"
+    }
+    function closemenu(){
+        menu.style.right = "-200px"
+    }
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyFvNMhCgZE1xvPXU3Npzt8OshoCDxIO5MdcU76OI_WeLwKCPIbWU_5Gt6maooauOIf/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const done = document.getElementById("done")
+
+    form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response =>{
+            done.innerHTML="Pesan Terkirim"
+            setTimeout(function(){
+                done.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
